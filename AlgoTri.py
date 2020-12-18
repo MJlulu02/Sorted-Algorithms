@@ -6,32 +6,11 @@ def triBulle():
 
     T = [random.randint(1,mx) for _ in range(elem)]
     n = len(T)
-
-    with open("Tab_Bulle.txt",'w') as fichier:
-        initTime = time.time()
-
-        fichier.write('Informations sur le Tableau : \n\nTableau initial : ')
-
-        print('Initialisation...')
-        for i in T:
-            fichier.write(str(i) +' ')
-
-        print('Triage du Tableau')
-        for j in range(1, n):
-            for i in range(0,n-j):
-                if T[i] > T[i+1]:
-                    T[i],T[i+1] = T[i+1], T[i]
-
-        fichier.write('\n\nTableau Triée : ')
-
-        for i in T:
-            fichier.write(str(i) +' ')
-
-        finalTime = time.time()
-        print('Fin de l\'Algorithme')
-
-    with open("Info_Temps_Bulle.txt", "w") as fichier:
-        fichier.write('Imformation sur le temps,\n\nTemps initial : ' +str(initTime) +'s\nTemps Final : ' +str(finalTime) +'s\nTemps : ' +str(finalTime-initTime)+'s')
+    
+    for j in range(1, n):
+        for i in range(0,n-j):
+            if T[i] > T[i+1]:
+                T[i],T[i+1] = T[i+1], T[i]
 
 def triSelection():
     mx = int(input("Nombre Max random : "))
